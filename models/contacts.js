@@ -31,7 +31,7 @@ const addContact = async ({ name, email, phone }) => {
     email,
     phone,
   };
-  
+
   const newData = await listContacts();
   newData.push(newContact);
   const newContactList = `${JSON.stringify(newData)}`;
