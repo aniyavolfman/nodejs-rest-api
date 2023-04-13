@@ -1,13 +1,14 @@
 # Contact Management App
 
-This is a simple Node.js application for managing a list of contacts. It uses MongoDB database to store the contacts data and provides RESTful API endpoints to perform CRUD operations.
+This is a simple Node.js application for managing a list of contacts. 
+It uses MongoDB database to store the contacts data and provides RESTful API endpoints to perform CRUD operations.
 
 ## Prerequisites
 
 Before running the application, you need to have the following installed on your system:
 
-Node.js (version 14 or later)
-MongoDB (version 4.0 or later)
+- Node.js (version 14 or later)
+- MongoDB (version 4.0 or later)
 
 ## Installation
 
@@ -36,22 +37,22 @@ npm run start:dev
 
 The following API endpoints are available:
 
-GET /api/contacts : 
+- GET /api/contacts : 
 Get a list of all contacts.
 
-GET /api/contacts/:contactId : 
+- GET /api/contacts/:contactId : 
 Get a contact by ID.
 
-POST /api/contacts : 
+- POST /api/contacts : 
 Add a new contact.
 
-PUT /api/contacts/:contactId : 
+- PUT /api/contacts/:contactId : 
 Update a contact by ID.
 
-PATCH /api/contacts/:contactId/favorite :
+- PATCH /api/contacts/:contactId/favorite :
 Update a contact favorite option.
 
-DELETE /api/contacts/:contactId : 
+- DELETE /api/contacts/:contactId : 
 Delete a contact by ID.
 
 ## Request Body Schema
