@@ -76,7 +76,87 @@ The request body for updating a contact favorite option must follow the followin
   "favorite": true
 }
 ```
+## Response Body Schema
 
+- GET /api/contacts : 
+
+```javascript
+[
+  {
+    "_id": "64353a1fd2ba11b789924ae3",
+    "name": "Allen Raymond",
+    "email": "nulla.ante@vestibul.co.uk",
+    "phone": "(992) 914-3792",
+    "favorite": false
+  },
+  {
+    "_id": "64353a1fd2ba11b789924ae6",
+    "name": "Wylie Pope",
+    "email": "est@utquamvel.net",
+    "phone": "(692) 802-2949",
+    "favorite": true
+  }
+]
+```
+- GET /api/contacts/:contactId : 
+
+```javascript
+{
+  "_id": "64353a1fd2ba11b789924ae6",
+  "name": "Wylie Pope",
+  "email": "est@utquamvel.net",
+  "phone": "(692) 802-2949",
+  "favorite": true
+}
+```
+- POST /api/contacts : 
+
+```javascript
+{
+  "name": "Willy",
+  "email": "est@utquamvel.net",
+  "phone": "(692) 802-2949",
+  "favorite": true,
+  "_id": "6437fff0959ac8ff03bebe1d",
+  "createdAt": "2023-04-13T13:13:20.871Z",
+  "updatedAt": "2023-04-13T13:13:20.871Z"
+}
+
+```
+- PUT /api/contacts/:contactId : 
+
+```javascript
+{
+  "_id": "6437fff0959ac8ff03bebe1d",
+  "name": "Willy Pepper",
+  "email": "est@utquamvel.net",
+  "phone": "(692) 802-2949",
+  "favorite": true,
+  "createdAt": "2023-04-13T13:13:20.871Z",
+  "updatedAt": "2023-04-13T13:17:03.905Z"
+}
+```
+- PATCH /api/contacts/:contactId/favorite :
+
+```javascript
+  {
+  "_id": "6437fff0959ac8ff03bebe1d",
+  "name": "Willy Pepper",
+  "email": "est@utquamvel.net",
+  "phone": "(692) 802-2949",
+  "favorite": false,
+  "createdAt": "2023-04-13T13:13:20.871Z",
+  "updatedAt": "2023-04-13T13:18:40.778Z"
+}
+```
+
+- DELETE /api/contacts/:contactId : 
+
+```javascript
+ {
+  "message": "contact deleted"
+}
+```
 ## Error Handling
 
 The API endpoints return error responses with code and message.
