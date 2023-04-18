@@ -2,6 +2,7 @@
 
 This is a simple Node.js application for managing a list of contacts. 
 It uses MongoDB database to store the contacts data and provides RESTful API endpoints to perform CRUD operations.
+Сontains user authentication.
 
 ## Prerequisites
 
@@ -37,6 +38,12 @@ npm run start:dev
 
 The following API endpoints are available:
 
+- POST /api/auth/users/register :
+User registration.
+
+- POST /api/auth/users/login :
+User authorization.
+
 - GET /api/contacts : 
 Get a list of all contacts.
 
@@ -56,6 +63,16 @@ Update a contact favorite option.
 Delete a contact by ID.
 
 ## Request Body Schema
+
+The request body for user registration and authorization must follow the following schema:
+
+```javascript
+{
+  "email": "example@example.com",
+  "password": "examplepassword"
+}
+```
+The name and email are required.
 
 The request body for creating or updating a contact must follow the following schema:
 
