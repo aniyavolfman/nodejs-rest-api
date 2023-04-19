@@ -18,6 +18,11 @@ const contactSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
   },
   { versionKey: false, timestamps: true }
 );
@@ -42,37 +47,54 @@ const schemas = {
   updateFavoriteSchema,
 };
 
-const listContacts = async () => {
-  const data = await Contact.find();
+const listContacts = async (owner, skip, limit) => {
+  const data = await Contact.find({ owner }, "-createdAt -updatedAt", {
+    skip,
+    limit,
+  }).populate("owner", "email");
   return data;
 };
 
-const getContactById = async (contactId) => {
-  const contact = await Contact.findOne({ _id: contactId });
+const getContactById = async (contactId, owner) => {
+  const contact = await Contact.findOne({ _id: contactId, owner }).populate(
+    "owner",
+    "email"
+  );
   return contact;
 };
 
-const removeContact = async (contactId) => {
-  const result = await Contact.findByIdAndRemove(contactId);
-  return result;
-};
-
-const addContact = async (body) => {
-  const result = await Contact.create(body);
-  return result;
-};
-
-const updateContact = async (contactId, body) => {
-  const result = await Contact.findByIdAndUpdate(contactId, body, {
-    new: true,
+const removeContact = async (contactId, owner) => {
+  const result = await Contact.findByIdAndRemove({
+    _id: contactId,
+    owner,
   });
   return result;
 };
 
-const updateStatusContact = async (contactId, body) => {
-  const result = await Contact.findByIdAndUpdate(contactId, body, {
-    new: true,
-  });
+const addContact = async (body, owner) => {
+  const result = await Contact.create({ ...body, owner });
+  return result;
+};
+
+const updateContact = async (contactId, owner, body) => {
+  const result = await Contact.findByIdAndUpdate(
+    { _id: contactId, owner },
+    body,
+    {
+      new: true,
+    }
+  );
+  return result;
+};
+
+const updateStatusContact = async (contactId, owner, body) => {
+  const result = await Contact.findByIdAndUpdate(
+    { _id: contactId, owner },
+    body,
+    {
+      new: true,
+    }
+  ).populate("owner", "email");
   return result;
 };
 
