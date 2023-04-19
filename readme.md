@@ -44,6 +44,12 @@ User registration.
 - POST /api/auth/users/login :
 User authorization.
 
+- GET /api/auth/users/current :
+Get current user.
+
+- POST /api/auth/users/logout :
+User logout.
+
 - GET /api/contacts : 
 Get a list of all contacts.
 
@@ -62,6 +68,11 @@ Update a contact favorite option.
 - DELETE /api/contacts/:contactId : 
 Delete a contact by ID.
 
+## Current user  and  Logout request:
+
+```javascript
+Authorization: "Bearer {{token}}"
+```
 ## Request Body Schema
 
 The request body for user registration and authorization must follow the following schema:

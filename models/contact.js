@@ -47,8 +47,11 @@ const schemas = {
   updateFavoriteSchema,
 };
 
-const listContacts = async (owner) => {
-  const data = await Contact.find({ owner }).populate("owner", "email");
+const listContacts = async (owner, skip, limit) => {
+  const data = await Contact.find({ owner }, "-createdAt -updatedAt", {
+    skip,
+    limit,
+  }).populate("owner", "email");
   return data;
 };
 

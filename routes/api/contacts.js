@@ -16,7 +16,9 @@ const router = express.Router();
 router.get("/", auth, async (req, res, next) => {
   try {
     const { _id: owner } = req.user;
-    const result = await listContacts(owner);
+    const { page = 1, limit = 20 } = req.query;
+    const skip = (page - 1) * limit;
+    const result = await listContacts(owner, skip, limit);
     res.json(result);
   } catch (error) {
     next(error);
