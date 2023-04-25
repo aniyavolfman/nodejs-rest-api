@@ -51,6 +51,9 @@ Get current user.
 - POST /api/auth/users/logout :
 User logout.
 
+- PATCH /users/avatars:
+Update user`s avatar.
+
 - GET /api/contacts : 
 Get a list of all contacts.
 
@@ -73,6 +76,13 @@ Delete a contact by ID.
 
 ```javascript
 Authorization: "Bearer {{token}}"
+```
+## Update user`s avatar request:
+
+```javascript
+Content-Type: multipart/form-data
+Authorization: "Bearer {{token}}"
+RequestBody: завантажений файл
 ```
 ## Request Body Schema
 
