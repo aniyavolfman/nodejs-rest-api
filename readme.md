@@ -51,7 +51,7 @@ Get current user.
 - POST /api/auth/users/logout :
 User logout.
 
-- PATCH /users/avatars:
+- PATCH /api/auth/users/avatars:
 Update user`s avatar.
 
 - GET /api/contacts : 
