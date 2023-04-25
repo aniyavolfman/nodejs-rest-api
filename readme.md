@@ -28,6 +28,7 @@ Create a .env file in the root directory of the project with the following envir
 ```bash
 DB_HOST=
 PORT=
+SECRET_KEY=
 ```
 
 Start the application:
