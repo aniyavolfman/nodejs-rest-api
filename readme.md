@@ -28,6 +28,7 @@ Create a .env file in the root directory of the project with the following envir
 ```bash
 DB_HOST=
 PORT=
+SECRET_KEY=
 ```
 
 Start the application:
@@ -49,6 +50,9 @@ Get current user.
 
 - POST /api/auth/users/logout :
 User logout.
+
+- PATCH /api/auth/users/avatars:
+Update user`s avatar.
 
 - GET /api/contacts : 
 Get a list of all contacts.
@@ -72,6 +76,13 @@ Delete a contact by ID.
 
 ```javascript
 Authorization: "Bearer {{token}}"
+```
+## Update user`s avatar request:
+
+```javascript
+Content-Type: multipart/form-data
+Authorization: "Bearer {{token}}"
+RequestBody: завантажений файл
 ```
 ## Request Body Schema
 
