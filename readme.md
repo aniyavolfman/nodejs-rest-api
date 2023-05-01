@@ -29,6 +29,8 @@ Create a .env file in the root directory of the project with the following envir
 DB_HOST=
 PORT=
 SECRET_KEY=
+META_PASSWORD=
+BASE_URL=
 ```
 
 Start the application:
@@ -41,6 +43,12 @@ The following API endpoints are available:
 
 - POST /api/auth/users/register :
 User registration.
+
+- GET /api/auth/users/verify/:verificationToken:
+User verification.
+
+- POST /api/auth/users/verify:
+Resending an email request.
 
 - POST /api/auth/users/login :
 User authorization.
@@ -95,6 +103,14 @@ The request body for user registration and authorization must follow the followi
 }
 ```
 The name and email are required.
+
+The request body for resending an email request must follow the following schema:
+
+```javascript
+{
+  "email": "example@example.com"
+}
+```
 
 The request body for creating or updating a contact must follow the following schema:
 
